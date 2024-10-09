@@ -14,8 +14,6 @@ overcome potential hurdles
 """
 
 #%% import packages
-import os
-import numpy as np
 import pandas as pd
 
 #%%
@@ -41,10 +39,10 @@ IAT = ...
 
 IAT = ...
 
+IAT = ...
 
 # check out the replace method: https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.replace.html
-# use this to recode gender so that 1=men and 2=women (instead of '[1]' and '[2]')
-IAT...
+# use this to recode gender to be integers where 1=men and 2=women (instead of '[1]' coding for men and '[2]' for women)
 
 # use this cleaned dataframe to answer the following questions
 
@@ -54,34 +52,37 @@ IAT...
 # use sorting and indexing to print out the following information:
 
 # 2a: the ids of the 5 participants with the fastest reaction times
-...
 
 # 2b: the ids of the 5 men with the strongest white-good bias
-...
 
 # 2c: the ids of the 5 women in new york with the strongest white-good bias
-...
+
 
 
 #%%
 # Question 3: loops and pivots
 
-# check out the unique method: https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.unique.html
+# 3a check out the unique method: https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.unique.html
 # use it to get a list of states
-states =...
+states = ...
 
-# write a loop that iterates over states to calculate the median white-good
+# is there anything strange in your list of states?  How might you clean this up?
+
+# 3b: write a loop that iterates over states to calculate the median white-good 
 # bias per state
 # store the results in a stateBias dataframe with 2 columns: states & bias
 # hint you will need to use indexing to store the median on each iteration
-# I recomend using iloc
+# I recommend using iloc
 sind=0
-stateBias=pd.DataFrame(states,columns=['states'])
-stateBias['bias']=None
+stateBiasLoop=pd.DataFrame(states,columns=['state']) # create a dataframe to store the results
+stateBiasLoop['bias']=None # add a column to store the bias, setting default to None, indicating missing data
 
-for ...
-            
+for ... # AK = 0.482765
 
-# now use the pivot_table function to calculate the same statistics as the above loop
-state_bias=...
+# 3c: now use the pivot_table function to calculate the same statistics as the above loop
+stateBiasPivot = ... 
 
+# 3d: merge the two dataframes according to state to test they have the outcomes
+# be sure to automate the test so that you get a single output with one value when they are identical
+# and other values when they are not (hint: you can take the mean of boolean comparisons)  
+stateBias = ...
